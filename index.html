@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Freshers Reception 🎉</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      background: #fffaf0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+    img {
+      max-width: 90%;
+      max-height: 70vh;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+
+<body>
+
+  <img src="photo.jpg" alt="Freshers Reception">
+  <h1>🎉 Welcome Freshers 🎉</h1>
+
+  <script>
+    const duration = 30 * 1000; // 30 seconds
+    const end = Date.now() + duration;
+
+    (function frame() {
+      confetti({
+        particleCount: 6,
+        spread: 80,
+        origin: { x: Math.random(), y: 0 }
+      });
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    })();
+  </script>
+
+</body>
+</html>
