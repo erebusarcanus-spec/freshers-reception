@@ -1,56 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Freshers Reception 🎉</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Confetti Library (Free CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
   <style>
-    body {
+    html, body {
       margin: 0;
-      background: #fffaf0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      flex-direction: column;
-      font-family: Arial, sans-serif;
-      text-align: center;
+      padding: 0;
+      width: 100%;
+      height: 100%;
       overflow: hidden;
+      background: black;
     }
-    img {
-      max-width: 90%;
-      max-height: 70vh;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+    body {
+      background-image: url("photo.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
     }
   </style>
 </head>
 
 <body>
 
-  <img src="photo.jpg" alt="Freshers Reception">
-  <h1 style="color: gold; font-size: 48px;">
-🎉 Welcome Freshers 🎉
-</h1>
-
-  <script>
-    const duration = 30 * 1000; // 30 seconds
-    const end = Date.now() + duration;
-
-    (function frame() {
-      confetti({
-        particleCount: 6,
-        spread: 80,
-        origin: { x: Math.random(), y: 0 }
-      });
-      if (Date.now() < end) {
-        requestAnimationFrame(frame);
+<script>
+  // Continuous celebration effect
+  function celebrate() {
+    confetti({
+      particleCount: 6,
+      spread: 100,
+      startVelocity: 30,
+      origin: {
+        x: Math.random(),
+        y: Math.random() * 0.5
       }
-    })();
-  </script>
+    });
+  }
+
+  // Run every 200ms (smooth celebration)
+  setInterval(celebrate, 200);
+</script>
 
 </body>
 </html>
